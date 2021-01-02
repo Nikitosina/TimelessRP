@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block navbar %}
+    <div class="navbar" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Главная</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/news">Новости</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/servers">Сервера<span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <h1 align="center">Список наших серверов</h1>
+    <h3>
+        {% if admin == 'True' %}
+        <a class="btn btn-success btn-lg" href="/add_server">Добавить</a>
+        {% endif %}
+    </h3>
+    <br>
+
+        {% for s in serv_list %}
+            {% if admin == 'True' %}
+                <div class="btn-group">
+                    <form action="/del_server/{{ s[0] }}" method="get">
+                        <button type="submit" class="btn btn-danger">Удалить</button>
+                    </form>
+                    <form action="/edit_server/{{ s[0] }}" method="get">
+                        <button type="submit" class="btn btn-info">Редактировать</button>
+                    </form>
+                    <form action="/swap_up/{{ s[0] }}" method="get">
+                        <button type="submit" class="btn btn-primary">Вверх</button>
+                    </form>
+                    <form action="/swap_down/{{ s[0] }}" method="get">
+                        <button type="submit" class="btn btn-primary">Вниз</button>
+                    </form>
+                </div>
+            {% endif %}
+            <div onclick="window.location = 'servers/{{ s[0] }}'" style="cursor: pointer; justify-content: center; align-items: center;" class="card text-white text-center bg-primary beautiful">
+                <br><br>
+                <div class="card-text"><img src="{{ url_for('static', filename='') }}{{ s[3] }}" width="64px" height="64px" style="top: 20%"></div>
+                    <h3 class="card-title">{{ s[1] }}</h3>
+                    <p class="card-text">Игроков онлайн: {{ s[2] }}</p>
+            </div><br>
+        {% endfor %}
+{% endblock %}

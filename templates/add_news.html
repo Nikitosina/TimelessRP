@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+ 
+{% block content %}
+    <h1>Добавление Новости</h1>
+    <form action="" method="post" novalidate>
+        {{ form.csrf_token }}
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.title.label }}<br>
+            {{ form.title }}<br>
+        </p>
+        <p>
+            {{ form.content.label }}<br>
+            {{ form.content }}<br>
+        </p>
+        <p>
+            {{ form.tags.label }}<br>
+            {{ form.tags }}<br>
+        </p>
+        <p>
+            {{ form.image.label }}<br>
+            {{ form.image }}<br>
+        </p>
+        <p>
+            {% for error in form.title.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}<br>
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}

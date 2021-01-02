@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+ 
+{% block content %}
+    <h1 align="center">Личный кабинет</h1>
+    <hr color="#8c638c"><br>
+
+    <p>Имя: {{user[1]}}</p>
+    <p>Статус: {{user[3]}}</p>
+    <p>Ваш id: {{user[0]}}</p>
+    {% if user[3] == 'admin' %}
+        <form action="/make_admin" method="post">
+            ID:
+            <input name="id">
+            <button type="submit" class="btn btn-primary">Сделать админом</button>
+        </form>
+    {% endif %}
+    <hr color="#8c638c"><br>
+    <a class="btn btn-danger btn-lg" href="/logout">Выйти</a>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+ 
+{% block content %}
+    <h1 align="center">Добавление Сервера</h1>
+    <hr color="#8c638c"><br>
+    <form action="" method="post" novalidate>
+        {{ form.csrf_token }}
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.name.label }}<br>
+            {{ form.name }}<br>
+        </p>
+        <p>
+            {{ form.players.label }}<br>
+            {{ form.players }}<br>
+        </p>
+        <p>
+            {{ form.url.label }}<br>
+            {{ form.url }}<br>
+        </p>
+        <p>
+            {{ form.description.label }}<br>
+            {{ form.description }}<br>
+        </p>
+        <p>
+            {{ form.icon.label }}<br>
+            {{ form.icon }}<br>
+        </p>
+        <p>
+            {{ form.img.label }}<br>
+            {{ form.img }}<br>
+        </p>
+        <p>
+            {% for error in form.name.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}<br>
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}

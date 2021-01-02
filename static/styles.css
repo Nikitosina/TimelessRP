@@ -1,0 +1,161 @@
+body{
+    background-color: #1e0a1e;
+    color: white;
+}
+.navbar-dark {
+    background-color: rgb(40,15,45);
+}
+.card-title {
+    text-decoration: none;
+}
+.left_img {
+    max-width: 30rem;
+    max-height: 50rem;
+    width: 100%;
+    height: auto;
+    float: left;
+    margin: 0 25px 0 0;
+    vertical-align: middle;
+    border-radius: 10%;
+}
+.imgbox {
+    display: grid;
+}
+.box {
+   display: flex;
+   align-items: center;
+}
+.purple-bg {
+    background-color: rgb(40,15,45)!important;
+    border: 5px rgb(140,99,140);
+    color: #fff;
+    position: relative;
+    transition: box-shadow 0.75s ease-out, transform 0.75s ease-out, background-color 0.75s;
+}
+.beautiful:hover {
+    background-color: rgb(140,99,140)!important;
+    box-shadow: 0 0 15px rgba(140,99,140,0.5);
+    transform: scale(1.03);
+}
+.btn {
+  width: 180px;
+  height: 60px;
+  transition: 1s ease-in-out;
+}
+
+.bg-dark {
+    max-width: 22rem;
+    height: 22rem;
+    background-color: rgb(40,15,45)!important;
+    transition: box-shadow 0.75s ease-out, transform 0.75s ease-out, background-color 0.75s;
+}
+
+.bg-dark:hover {
+    box-shadow: 0 0 15px rgba(140,99,140,0.5);
+    transform: scale(1.03);
+}
+
+.vertical {}
+
+.vertical::after,
+.vertical::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 0;
+    border-bottom: 2px solid transparent;
+    border-top: 2px solid transparent;
+}
+
+.vertical::after {
+    bottom: 0;
+    right: 0;
+}
+
+.vertical:hover::before {
+    height: 100%;
+}
+.vertical:hover::after {
+    height: 100%;
+}
+
+.vertical:hover::before {
+    border-bottom-color: #8c638c;
+    transition: border-color 0.1s, height 0.5s ease-out 0.1s;
+}
+
+.vertical:hover::after {
+    border-top-color: #8c638c;
+    transition: border-color 0.1s, height 0.5s ease-out 0.1s;
+}
+
+
+.bg-primary {
+    max-width: 70rem;
+    width: 100%;
+    height: 15rem;
+    display: block;
+    background-color: rgb(40,15,45)!important;
+    vertical-align: middle;
+    transition: box-shadow 0.75s ease-out, transform 0.75s ease-out, background-color 0.75s;
+}
+
+.drawcard {
+    border: 0;
+    box-shadow: inset 0 0 0 2px transparent;
+    transition: color 0.25s;
+}
+
+.drawcard::before,
+.drawcard::after {
+    content: '';
+    position: absolute;
+    box-sizing: inherit;
+    border: 3px solid transparent;
+    width: 0;
+    height: 0;
+}
+
+.drawcard::after {
+    bottom: 0;
+    right: 0;
+}
+
+.drawcard:hover::before,
+.drawcard:hover::after {
+    width: 100%;
+    height: 100%;
+}
+
+.drawcard:hover::before {
+    border-top-color: #8c638c;
+    border-right-color: #8c638c;
+    transition: width 0.25s ease-out, height 0.25s ease-out 0.25s;
+}
+
+.drawcard:hover::after {
+    border-bottom-color: #8c638c;
+    border-left-color: #8c638c;
+    transition: border-color 0s ease-out 0.5s, width 0.25s ease-out 0.5s, height 0.25s ease-out 0.75s;
+}
+.drawmeet:hover {}
+
+.drawmeet::after {
+    top: 0;
+    left: 0;
+}
+
+.drawmeet:hover::before {
+    border-top-color: #8c638c;
+    border-right-color: #8c638c;
+}
+
+.drawmeet:hover::after {
+    border-bottom-color: #8c638c;
+    border-left-color: #8c638c;
+    transition: height 0.25s ease-out, width 0.25s ease-out 0.25s;
+}
+@keyframes example {
+    from {background-color: rgb(40,15,45);}
+    to {background-color: rgb(140,99,140);}
+}

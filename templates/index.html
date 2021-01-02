@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block navbar %}
+    <div class="navbar" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Главная<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/news">Новости</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/servers">Сервера</a>
+            </li>
+        </ul>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <h1 align="center">Главная</h1>
+    <br>
+
+    <div class="card-deck" align="center">
+        <div class="card text-white text-center bg-dark">
+            <div class="card-header"><img src="{{url_for('static', filename='lock_icon.png')}}" width="64px" height="64px"></div>
+                <h3 class="card-title">Надежность</h3>
+                <p class="card-text" align="center">Наши сервера такие надежные, что просто АБАЛДЕТЬ! Мы используем новейшие технологии и разработки NASA, так что за свои аккаунты можете не переживать :)</p>
+        </div>
+        <div class="card text-white text-center bg-dark">
+            <div class="card-header"><img src="{{url_for('static', filename='thumbs_up_icon.png')}}" width="64px" height="64px"></div>
+                <h3 class="card-title">Качество</h3>
+                <p class="card-text">Такого великолепного качества серверов вы не найдете нигде! Наша поддержка работает 24 часа в сутки</p>
+        </div>
+        <div class="card text-white text-center bg-dark">
+            <div class="card-header"><img src="{{url_for('static', filename='crew_icon.png')}}" width="64px" height="64px"></div>
+                <h3 class="card-title">Администрация</h3>
+                <p class="card-text">Более отзывчивых и приветливых людей вы не встречали еще нигде! Администраторы готовы ответить на любой вопрос и учитывают все предпочтения игроков</p>
+        </div>
+    </div>
+
+    <br>
+    <h1 align="center">Как с нами связаться</h1>
+    <br>
+
+    <div class="card-deck" align="center">
+        <div onclick="window.location = '/'" style="cursor: pointer" class="card text-white text-center bg-primary beautiful">
+            <div class="card-header"><img src="{{url_for('static', filename='discord_icon.png')}}" width="64px" height="64px"></div>
+                <div class="card-body">
+                <h3 class="card-title">Discord</h3>
+                <p class="card-text">Эта кнопка отправит вас на наш канал в Discord</p>
+            </div>
+        </div>
+        <div class="card text-white text-center bg-primary beautiful">
+            <div onclick="window.location = '/'" style="cursor: pointer" class="card-header"><img src="{{url_for('static', filename='vk_icon.png')}}" width="64px" height="64px"></div>
+                <div class="card-body">
+                <h3 class="card-title">VK</h3>
+                <p class="card-text">Наша группа в ВК здесь!</p>
+            </div>
+        </div>
+    </div>
+    <!-- <script src="{{url_for('static', filename='js/Animation.js')}}"></script> -->
+{% endblock %}

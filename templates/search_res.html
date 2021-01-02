@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Результаты поиска</h1>
+
+    {% for n in res %}
+        <div class="alert alert-primary" role="alert">
+            <a href="/news/{{ n[5] }}"><h4 class="alert-heading">{{ n[0] }}</h4></a>
+            {% if admin == 'True' %}
+                <form action="/del_news/{{ n[5] }}" method="get">
+                    <button type="submit" class="btn btn-danger">Удалить</button>
+                </form>
+            {% endif %}
+                <hr>
+                <p>{{ n[1] }}</p>
+                <p><img src="{{ n[3] }}" width="500" height="255"></p>
+                <hr>
+                <p class="mb-0">{% for tag in n[2] %}<span class="badge badge-pill badge-info"> {{ tag }} </span> {% endfor %}</p>
+        </div>
+      {% endfor %}
+{% endblock %}

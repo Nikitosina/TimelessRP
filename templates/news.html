@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block navbar %}
+    <div class="navbar" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Главная</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/news">Новости<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/servers">Сервера</a>
+            </li>
+        </ul>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <h1 align="center">Новости</h1>
+    <br>
+
+    <h3>
+        {% if admin == 'True' %}
+        <a class="btn btn-success btn-lg" href="/add_news">Добавить</a>
+        {% endif %}
+    </h3>
+      {% for n in news %}
+        <div class="alert alert-primary purple-bg beautiful" role="alert">
+            <h4 class="alert-heading" style="color: #fff; text-decoration: none">{{ n[0] }}</h4></a>
+            {% if admin == 'True' %}
+                <form action="/del_news/{{ n[5] }}" method="get">
+                    <button type="submit" class="btn btn-danger">Удалить</button>
+                </form>
+            {% endif %}
+                <p style="word-break: break-all">{{ n[1] }}</p>
+                <p><img src="{{ n[3] }}" style="size: inherit; width:100%; height: auto;"></p>
+                <p class="mb-0">{% for tag in n[2] %}<span class="badge badge-pill badge-info"> {{ tag }} </span> {% endfor %}</p>
+        </div>
+      {% endfor %}
+
+{% endblock %}

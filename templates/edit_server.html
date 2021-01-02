@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+ 
+{% block content %}
+    <h1 align="center">Редактирование Сервера</h1>
+    <h4 align="center">id = {{ id1 }}</h4>
+    <hr color="#8c638c"><br>
+    <form action="" method="post" novalidate>
+        {{ form.csrf_token }}
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.name.label }}<br>
+            <input name="name" value="{{ form.name.data }}"><br>
+        </p>
+        <p>
+            {{ form.players.label }}<br>
+            <input name="players" value="{{ form.players.data }}"><br>
+        </p>
+        <p>
+            {{ form.url.label }}<br>
+            <input name="url" value="{{ form.url.data }}"><br>
+        </p>
+        <p>
+            {{ form.description.label }}<br>
+            <input name="description" value="{{ form.description.data }}"><br>
+        </p>
+        <p>
+            {{ form.icon.label }}<br>
+            <input name="icon" value="{{ form.icon.data }}"><br>
+        </p>
+        <p>
+            {{ form.img.label }}<br>
+            <input name="img" value="{{ form.img.data }}"><br>
+        </p>
+        <p>
+            {% for error in form.name.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}<br>
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}

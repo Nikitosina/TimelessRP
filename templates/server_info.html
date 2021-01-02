@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 align="center">{{ info[0] }}</h1>
+    <br>
+    <div class="box">
+        <img src="{{ url_for('static', filename='') }}{{ info[3] }}" alt="img of the server" class="left_img">
+        <ul class="list-group" style="width: 100%">
+                {% for i in info[2] %}
+                    <li class="list-group-item purple-bg beautiful">
+                        <h4>• {{ i }}</h4>
+                    </li>
+                {% endfor %}
+            <br>
+            <div align="center" class="alert purple-bg">
+                <a href="{{ info[4] }}" style="color: white"><h4>Подключиться к серверу</h4></a>
+            </div>
+        </ul>
+    </div>
+{% endblock %}
